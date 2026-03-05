@@ -36,3 +36,4 @@ foreach($l in $lines){
 Write-Host "ROOT NOT ANCHORED"
 exit 2
 
+

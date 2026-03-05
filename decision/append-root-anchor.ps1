@@ -22,3 +22,4 @@ if($last -ne $line){ throw "ANCHOR_APPEND_MISMATCH|EXPECTED=$line|GOT=$last" }
 
 Write-Host "ROOT_ANCHORED"
 
+

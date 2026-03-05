@@ -29,3 +29,4 @@ $out = Join-Path $base "EVIDENCE_ROOT_SHA256.txt"
 Set-Content -LiteralPath $out -Value $root -Encoding UTF8
 
 Write-Host "EVIDENCE_ROOT_GENERATED:$out"
+

@@ -3,8 +3,8 @@ $base=(Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $decision="$base\decision"
 $trans="$base\transparency"
 
-$ctx=Get-Content "$decision\commit-context.json" -Raw | ConvertFrom-Json
-$dec=Get-Content "$decision\decision.json" -Raw | ConvertFrom-Json
+$ctx=Get-Content "$decision\commit-context.json" | Out-String | ConvertFrom-Json
+$dec=Get-Content "$decision\decision.json" | Out-String | ConvertFrom-Json
 
 $root=(Get-Content "$decision\EVIDENCE_ROOT_SHA256.txt").Trim()
 $mroot=(Get-Content "$decision\LEDGER_MERKLE_ROOT_SHA256.txt").Trim()
@@ -30,4 +30,5 @@ $entry=@{
 Add-Content -LiteralPath $log -Value $entry -Encoding UTF8
 
 Write-Host "TRANSPARENCY_LOG_UPDATED"
+
 
