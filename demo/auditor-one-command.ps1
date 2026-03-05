@@ -1,6 +1,6 @@
 ﻿$ErrorActionPreference="Stop"
 
-$ROOT="C:\Users\hp\Desktop\end-to-go\nono-gate-ci"
+$ROOT = (Get-Location).Path
 $DEC=Join-Path $ROOT "decision"
 $TRANS=Join-Path $ROOT "transparency"
 $DEMO=Join-Path $ROOT "demo"
@@ -107,6 +107,7 @@ if($auditStatus -eq "PASS"){
 else{
     Write-Host "NONO-GATE: AUDIT FAIL"
 }
+
 
 
 
