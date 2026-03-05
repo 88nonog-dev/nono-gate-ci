@@ -1,0 +1,1 @@
+﻿$r=(& "C:\Users\hp\Desktop\end-to-go\nono-gate-ci\signals\parse-sarif.ps1").Trim();$d=@{decision=$r;source="sarif";deterministic=$true};$d|ConvertTo-Json -Depth 5|Set-Content -LiteralPath "C:\Users\hp\Desktop\end-to-go\nono-gate-ci\decision\decision.json"
