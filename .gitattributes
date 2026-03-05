@@ -1,0 +1,23 @@
+﻿# NONO-GATE — deterministic line endings
+* text=auto eol=lf
+
+# Explicit text formats
+*.ps1 text eol=lf
+*.psm1 text eol=lf
+*.psd1 text eol=lf
+*.sh  text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.ndjson text eol=lf
+*.md  text eol=lf
+*.txt text eol=lf
+*.sarif text eol=lf
+
+# Binary (never modify)
+*.zip binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
