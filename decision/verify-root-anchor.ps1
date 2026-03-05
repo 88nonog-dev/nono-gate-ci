@@ -1,7 +1,5 @@
 ﻿$ErrorActionPreference="Stop"
-
-$base="C:\Users\hp\Desktop\end-to-go\nono-gate-ci\decision"
-
+$base=(Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $rootFile=Join-Path $base "EVIDENCE_ROOT_SHA256.txt"
 $decFile =Join-Path $base "DECISION_SHA256.txt"
 $logFile =Join-Path $base "ROOT_ANCHOR.log"
@@ -37,3 +35,4 @@ foreach($l in $lines){
 
 Write-Host "ROOT NOT ANCHORED"
 exit 2
+

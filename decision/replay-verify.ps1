@@ -1,7 +1,5 @@
 ﻿$ErrorActionPreference="Stop"
-
-$base="C:\Users\hp\Desktop\end-to-go\nono-gate-ci\decision"
-
+$base=(Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $rootFile=Join-Path $base "EVIDENCE_ROOT_SHA256.txt"
 
 if(!(Test-Path $rootFile)){
@@ -16,3 +14,4 @@ if($stored.Length -ne 64){
 }
 
 Write-Host "NONO-GATE: REPLAY VERIFIED"
+

@@ -1,6 +1,5 @@
 ﻿$ErrorActionPreference="Stop"
-
-$base="C:\Users\hp\Desktop\end-to-go\nono-gate-ci\decision"
+$base=(Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $rootFile=Join-Path $base "EVIDENCE_ROOT_SHA256.txt"
 $decFile=Join-Path $base "DECISION_SHA256.txt"
 $logFile=Join-Path $base "ROOT_ANCHOR.log"
@@ -22,3 +21,4 @@ $last=(Get-Content -LiteralPath $logFile -Encoding UTF8 | Select-Object -Last 1)
 if($last -ne $line){ throw "ANCHOR_APPEND_MISMATCH|EXPECTED=$line|GOT=$last" }
 
 Write-Host "ROOT_ANCHORED"
+

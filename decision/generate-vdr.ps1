@@ -1,5 +1,5 @@
 ﻿$ErrorActionPreference="Stop"
-$base="C:\Users\hp\Desktop\end-to-go\nono-gate-ci"
+$base=(Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $sigDir=Join-Path $base "signals"
 $decDir=Join-Path $base "decision"
 
@@ -15,8 +15,7 @@ $ledgerMerkleFile=Join-Path $decDir "LEDGER_MERKLE_ROOT_SHA256.txt"
 $bundleZip=Join-Path $decDir "EVIDENCE_BUNDLE.zip"
 $canonRules=Join-Path $decDir "CANONICAL_RULES.md"
 $proofIndex=Join-Path $decDir "PROOF_INDEX.txt"
-$replayCmd="powershell -ExecutionPolicy Bypass -File C:\Users\hp\Desktop\end-to-go\nono-gate-ci\decision\replay-verify.ps1"
-
+$replayCmd="pwsh -NoProfile -ExecutionPolicy Bypass -File `"$base/decision/replay-verify.ps1`""
 foreach($p in @($sigDir,$decDir)){ if(!(Test-Path $p)){ throw "DIR_MISSING:$p" } }
 foreach($p in @($decisionFile,$policyFile,$decShaFile,$polShaFile,$evRootFile,$ledgerFile,$ledgerMerkleFile)){ if(!(Test-Path $p)){ throw "REQUIRED_MISSING:$p" } }
 
@@ -112,3 +111,4 @@ if(Test-Path $canonRules){ $vdr+="canonical_rules="+$canonRules }
 if(Test-Path $proofIndex){ $vdr+="proof_index="+$proofIndex }
 $vdr | Set-Content -LiteralPath (Join-Path $decDir "VDR_RECEIPT.txt") -Encoding UTF8
 Write-Host "NONO-GATE: VDR GENERATED"
+

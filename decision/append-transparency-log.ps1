@@ -1,6 +1,5 @@
 ﻿$ErrorActionPreference="Stop"
-
-$base="C:\Users\hp\Desktop\end-to-go\nono-gate-ci"
+$base=(Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $decision="$base\decision"
 $trans="$base\transparency"
 
@@ -31,3 +30,4 @@ $entry=@{
 Add-Content -LiteralPath $log -Value $entry -Encoding UTF8
 
 Write-Host "TRANSPARENCY_LOG_UPDATED"
+
