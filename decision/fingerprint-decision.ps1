@@ -1,1 +1,2 @@
-﻿(Get-FileHash -Algorithm SHA256 "C:\Users\hp\Desktop\end-to-go\nono-gate-ci\decision\decision.json").Hash | Set-Content -LiteralPath "C:\Users\hp\Desktop\end-to-go\nono-gate-ci\decision\DECISION_SHA256.txt"
+﻿(Get-FileHash -Algorithm SHA256 "./decision/decision.json").Hash | Set-Content -LiteralPath "./decision/DECISION_SHA256.txt"
+
