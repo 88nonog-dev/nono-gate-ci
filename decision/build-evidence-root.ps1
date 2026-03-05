@@ -3,9 +3,9 @@
 $base = $PSScriptRoot
 
 $inputs = @(
-Join-Path $base "decision.json",
-Join-Path $base "policy.json",
-Join-Path $base "security-consensus.json"
+    (Join-Path $base "decision.json")
+    (Join-Path $base "policy.json")
+    (Join-Path $base "security-consensus.json")
 )
 
 foreach($f in $inputs){
