@@ -62,13 +62,13 @@ if($storedMerkle -eq $computedMerkle){
 }
 
 # STEP 4 — Collect Context
-$decisionObj=Get-Content $decisionFile | Out-String -Encoding UTF8 | ConvertFrom-Json
+$decisionObj=Get-Content $decisionFile | Out-String | ConvertFrom-Json
 $decision=$decisionObj.decision
 
 $decisionSha=(Get-Content $decisionShaFile -Encoding UTF8 | Select-Object -First 1).Trim()
 $policySha=(Get-Content $policyShaFile -Encoding UTF8 | Select-Object -First 1).Trim()
 
-$commitObj=Get-Content $commitAttFile | Out-String -Encoding UTF8 | ConvertFrom-Json
+$commitObj=Get-Content $commitAttFile | Out-String | ConvertFrom-Json
 $commitSha=$commitObj.commit_sha
 
 $ledgerSeq=(Get-Content $ledgerFile -Encoding UTF8 | Measure-Object).Count
@@ -107,5 +107,6 @@ if($auditStatus -eq "PASS"){
 else{
     Write-Host "NONO-GATE: AUDIT FAIL"
 }
+
 
 

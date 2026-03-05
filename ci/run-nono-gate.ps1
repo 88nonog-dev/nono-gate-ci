@@ -61,14 +61,14 @@ $root = (($sha.ComputeHash([Text.Encoding]::UTF8.GetBytes($concat)) | ForEach-Ob
 Set-Content -LiteralPath $evidenceRoot -Encoding UTF8 -Value $root
 
 # 5) Attestation
-$decObj = Get-Content -LiteralPath $decision | Out-String -Encoding UTF8 | ConvertFrom-Json
+$decObj = Get-Content -LiteralPath $decision | Out-String | ConvertFrom-Json
 $att = @{
   tool="nono-gate"
   deterministic=$true
   consensus=$true
   decision=($decObj.decision.ToString().Trim())
   decision_sha256=(Get-Content -LiteralPath $decisionSha -Raw -Encoding UTF8).Trim()
-  policy_sha256=(Get-Content -LiteralPath $policySha | Out-String -Encoding UTF8).Trim()
+  policy_sha256=(Get-Content -LiteralPath $policySha | Out-String).Trim()
   evidence_root_sha256=$root
   signals_sarif_count=[int]$sarifFiles.Count
 }
@@ -106,4 +106,5 @@ if(Test-Path $bundleBuild){ & $bundleBuild | Out-Null }
 
 # 10) Enforce gate
 & $gate
+
 
