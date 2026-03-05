@@ -7,7 +7,7 @@ $decision="$base\decision"
 $trans="$base\transparency"
 
 # recompute root using the same official script
-& "$decision\build-evidence-root.ps1"
+& (Join-Path $decision "build-evidence-root.ps1")
 
 $stored=(Get-Content "$decision\EVIDENCE_ROOT_SHA256.txt").Trim()
 $recalc=(Get-Content "$decision\EVIDENCE_ROOT_SHA256.txt").Trim()
@@ -34,6 +34,7 @@ if(Test-Path $anchor){
 }
 
 Write-Host "NONO-GATE: VERIFICATION COMPLETE"
+
 
 
 
