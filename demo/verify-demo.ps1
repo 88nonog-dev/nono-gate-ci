@@ -2,7 +2,7 @@
 
 Write-Host "NONO-GATE: STARTING REPLAY VERIFICATION"
 
-$base="C:\Users\hp\Desktop\end-to-go\nono-gate-ci"
+$base="$(Get-Location).Path"
 $decision="$base\decision"
 $trans="$base\transparency"
 
@@ -34,4 +34,5 @@ if(Test-Path $anchor){
 }
 
 Write-Host "NONO-GATE: VERIFICATION COMPLETE"
+
 
